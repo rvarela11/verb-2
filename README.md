@@ -2,4 +2,4 @@
 
 ###About###
 
-This is a boilerplate using the create react app library with redux.
+This is a boilerplate using the create react app library with redux. As an example, I have provided a simple "plus" & "minus" counter. 
