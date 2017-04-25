@@ -1,13 +1,13 @@
-// const initialState = {
-//   number: 0
-// };
+const initialState = {
+  number: 0
+};
 
-export function reducer (state = 0, action) {
+export function reducer (state = initialState, action) {
   switch (action.type) {
     case 'PLUS':
-        return state + 1;
+      return { number: state.number + 1 }
     case 'MINUS':
-        return state - 1;
+      return { number: state.number - 1 }
     default:
         return state;
   }
