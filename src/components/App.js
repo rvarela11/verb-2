@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addMessage } from '../actions/index';
+import { addMessage, deleteMessage } from '../actions/index';
 
 class App extends Component {
 
+  //Component state to store the value of the input
   state = {
     inputMessage: ''
   }
 
+  //Add a message through input
   handleChange = (e) => {
     this.setState({ inputMessage: e.target.value });
   }
-
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addMessage(this.state.inputMessage);
     this.setState({ inputMessage: '' });
+  }
+
+  //Delete a message by clicking on it
+  handleClick = (index) => {
+    this.props.deleteMessage(index);
   }
 
   render() {
@@ -25,7 +31,7 @@ class App extends Component {
         {
           this.props.messages.map((message, index) => {
             return (
-              <h3 key={index}> - {message}</h3>
+              <h3 className='message' key={index} onClick={this.handleClick.bind(this,index)}> - {message}</h3>
             )
           })
         }</div>
@@ -43,6 +49,7 @@ class App extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         addMessage: (inputMessage) => dispatch(addMessage(inputMessage)),
+        deleteMessage: (index) => dispatch(deleteMessage(index))
     };
 };
 

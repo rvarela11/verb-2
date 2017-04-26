@@ -6,6 +6,9 @@
 .topContainer {
   padding: 5%;
 }
+.message {
+  cursor: pointer;
+}
 
 .bottomContainer {
   height: 35px;
