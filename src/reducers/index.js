@@ -1,13 +1,13 @@
 const initialState = {
-  number: 0
+  messages: ["Howdy"]
 };
 
 export function reducer (state = initialState, action) {
   switch (action.type) {
-    case 'PLUS':
-      return { number: state.number + 1 }
-    case 'MINUS':
-      return { number: state.number - 1 }
+    case 'ADDMESSAGE':
+    return {
+          messages: state.messages.concat(action.message),
+        }
     default:
         return state;
   }

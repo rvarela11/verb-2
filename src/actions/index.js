@@ -1,13 +1,7 @@
-export const PLUS = 'PLUS';
-export function plus () {
+export const ADDMESSAGE = 'ADDMESSAGE';
+export function addMessage (message) {
   return {
-    type: PLUS
-  }
-}
-
-export const MINUS = 'MINUS';
-export function minus () {
-  return {
-    type: MINUS
+    type: ADDMESSAGE,
+    message: message
   }
 }

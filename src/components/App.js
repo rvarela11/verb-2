@@ -1,32 +1,54 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { plus, minus } from '../actions/index';
+import { addMessage } from '../actions/index';
 
 class App extends Component {
 
+  state = {
+    inputMessage: ''
+  }
+
+  handleChange = (e) => {
+    this.setState({ inputMessage: e.target.value });
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.addMessage(this.state.inputMessage);
+    this.setState({ inputMessage: '' });
+  }
+
   render() {
     return <div className="mainContainer">
-      <h2 className="topContainer">{this.props.number}</h2>
+      <h1>Simple Chat</h1>
+      <div className="topContainer">
+        {
+          this.props.messages.map((message, index) => {
+            return (
+              <h3 key={index}> - {message}</h3>
+            )
+          })
+        }</div>
 
       <div className="bottomContainer">
-        <h2 onClick={this.props.plus}>Plus</h2>
-        <h2 onClick={this.props.minus}>Minus</h2>
+        <form onSubmit={this.handleSubmit}>
+          <input type="text" onChange={this.handleChange} value={this.state.inputMessage} placeholder='Write...'/>
+        </form>
       </div>
+
     </div>
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        plus: () => dispatch(plus()),
-        minus: () => dispatch(minus()),
+        addMessage: (inputMessage) => dispatch(addMessage(inputMessage)),
     };
 };
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
-        number: state.number
+        messages: state.messages
     };
 };
 
