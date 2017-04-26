@@ -1,5 +1,10 @@
-# [Create React App](https://github.com/facebookincubator/create-react-app) with Redux
+# Simple Chat
 
 ###About###
 
-This is a boilerplate using the create react app library with redux. As an example, I have provided a simple "plus" & "minus" counter. 
+A simple chat using the create react app library with redux.
+
+###Technologies###
+1. React
+2. Redux
+3. Webpack
