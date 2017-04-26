@@ -1,6 +1,6 @@
 # Simple Chat
 
-###About###
+## About
 
 A simple chat using the create react app library with redux. A user can add and delete a message.
 
