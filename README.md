@@ -1,5 +1,13 @@
-# [Create React App](https://github.com/facebookincubator/create-react-app) with Redux
+# Verb
 
 ### About
 
-This is a boilerplate using the create react app library with redux. As an example, I have provided a simple chat box where you can add and delete a message.
+A dashboard that allows an administrator to search for a specific user and add them to a group (IT, Sales, Support). Also, the administrator is able to view all users in a specific group.
+
+### Technologies
+
+1. React
+2. Redux
+3. Webpack
+4. Babel
+5. JavaScript
