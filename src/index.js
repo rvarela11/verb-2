@@ -15,7 +15,7 @@ const store = createStore(reducer, applyMiddleware(thunkMiddleware));
 const Page1Split = () => (
   <Switch>
     <Route exact path="/page1" component={Page1} />
-    <Route path="/page1/user" component={Page1User} />
+    <Route path="/page1/:user" component={Page1User} />
   </Switch>
 )
 
