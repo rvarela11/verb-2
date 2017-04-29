@@ -1,15 +1,17 @@
-export const ADDMESSAGE = 'ADDMESSAGE';
-export function addMessage (message) {
+import userData from '../data';
+
+export const GETUSERS = 'GETUSERS';
+export function getUsers() {
   return {
-    type: ADDMESSAGE,
-    message
+    type: GETUSERS,
+    data: userData
   }
 }
 
-export const DELETEMESSAGE = 'DELETEMESSAGE';
-export function deleteMessage (index) {
+export const GETBUTTONTITLE = 'GETBUTTONTITLE';
+export function changeButtonTitle(buttonName) {
   return {
-    type: DELETEMESSAGE,
-    index
+    type: GETBUTTONTITLE,
+    buttonName
   }
 }

@@ -1,32 +1,52 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addMessage, deleteMessage } from '../actions/index';
-import MessageBox from './MessageBox';
-import MessageInput from './MessageInput';
-import { Link } from 'react-router-dom';
+import { getUsers, changeButtonTitle } from '../actions/index';
+
+import Nav from './Nav';
+import Users from './Users';
 
 class App extends Component {
 
+  componentDidMount () {
+    this.props.getUsers();
+  }
+
+  users = () => {
+
+    const group = [];
+
+    this.props.users.forEach((user) => {
+      if (this.props.buttonTitle === "All") {
+        group.push(user);
+      }
+      if (user.group === this.props.buttonTitle) {
+        group.push(user);
+      }
+    });
+
+    return group;
+  }
+
   render() {
-    return <div className="mainContainer">
-      <h1>Simple Chat</h1>
-      <Link to='/page1'>Page 1</Link>
-      <MessageBox messageBox={this.props.messages} deleteMessage={this.props.deleteMessage}/>
-      <MessageInput addMessage={this.props.addMessage}/>
+    return <div>
+      <header></header>
+      <Nav changeButtonTitle={this.props.changeButtonTitle}/>
+      <Users users={this.users()} buttonTitle={this.props.buttonTitle}/>
     </div>
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addMessage: (inputMessage) => dispatch(addMessage(inputMessage)),
-        deleteMessage: (index) => dispatch(deleteMessage(index))
+        getUsers: () => dispatch(getUsers()),
+        changeButtonTitle: (buttonName) => dispatch(changeButtonTitle(buttonName))
     };
 };
 
 const mapStateToProps = (state) => {
     return {
-        messages: state.messages
+        users: state.data,
+        buttonTitle: state.buttonTitle
     };
 };
 

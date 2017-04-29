@@ -1,23 +1,22 @@
 const initialState = {
-  messages: ["Howdy"]
+  data: [],
+  buttonTitle: 'All'
 };
 
-export function reducer (state = initialState, action) {
+export function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'ADDMESSAGE':
-    return {
-          messages: state.messages.concat(action.message),
-        }
-    case 'DELETEMESSAGE':
-    return {
-      messages: [
-        ...state.messages.slice(0, action.index),
-        ...state.messages.slice(
-          action.index + 1, state.messages.length
-        ),
-      ],
-    };
+    case 'GETUSERS':
+      return {
+        data: state.data.concat(action.data),
+        buttonTitle: state.buttonTitle
+      }
+    case 'GETBUTTONTITLE':
+      const stateCopy = { ...state, buttonTitle: action.buttonName }
+      return {
+        data: stateCopy.data,
+        buttonTitle: stateCopy.buttonTitle
+      }
     default:
-        return state;
+      return state;
   }
 }
