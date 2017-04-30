@@ -1,20 +1,34 @@
 const initialState = {
   data: [],
+  singleData:[],
+  passkey: 'Button',
   buttonTitle: 'All'
 };
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'GETUSERS':
+    case 'GetUsers':
       return {
-        data: state.data.concat(action.data),
-        buttonTitle: state.buttonTitle
+        ...state,
+        data: state.data.concat(action.data)
       }
-    case 'GETBUTTONTITLE':
-      const stateCopy = { ...state, buttonTitle: action.buttonName }
+    case 'GetButtonTitle':
       return {
-        data: stateCopy.data,
-        buttonTitle: stateCopy.buttonTitle
+        ...state,
+        buttonTitle: action.buttonName,
+        passkey: 'Button'
+      }
+    case 'GetSingleUser':
+      return {
+        ...state,
+        singleData: action.user,
+        passkey: 'Single',
+        buttonTitle: 'User'
+      }
+    case 'ChangeUserGroup':
+      return {
+        ...state,
+        data: action.data
       }
     default:
       return state;

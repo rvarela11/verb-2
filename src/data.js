@@ -1,39 +1,47 @@
 const userData = [{
+  id: 1,
   first_name: "Richard",
   last_name: "Reedy",
   region: "West",
   group: "IT"
 }, {
+  id: 2,
   first_name: "Suzi",
   last_name: "Sosa",
   region: "Midwest",
   group: "Sales"
 }, {
+  id: 3,
   first_name: "Robert",
   last_name: "Varela",
   region: "Southwest",
   group: "Support"
 }, {
+  id: 4,
   first_name: "Maddie",
   last_name: "Serviente",
   region: "South",
   group: "IT"
 }, {
+  id: 5,
   first_name: "Jesse",
   last_name: "Jorgenson",
   region: "Northeast",
   group: "Sales"
 }, {
+  id: 6,
   first_name: "Laura",
   last_name: "Broderick",
   region: "West",
   group: "IT"
 }, {
+  id: 7,
   first_name: "David",
   last_name: "Thomas",
   region: "Midwest",
   group: "Sales"
 }, {
+  id: 8,
   first_name: "Tommy",
   last_name: "Lynn",
   region: "South",

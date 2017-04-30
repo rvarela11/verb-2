@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 class Nav extends Component {
 
+  // This function runs everytime a colored button is clicked.
+
     colorButton = (e) => {
 
       const button_name = e.target.innerHTML;
@@ -30,20 +32,26 @@ class Nav extends Component {
         if (button_color === "rgba(0, 0, 0, 0)" ) {
           all_buttons_li.forEach(button => {
               button.style.backgroundColor = "rgba(0, 0, 0, 0)";
-        })
+          })
 
-        filters.forEach((filter) => {
-          if (filter.group === button_name) {
-            e.target.style.backgroundColor = filter.color;
-            button_top.style.backgroundColor = filter.color;
-            this.props.changeButtonTitle(button_name)
-          }
-        });
-      }
-
+          filters.forEach((filter) => {
+            if (filter.group === button_name) {
+              e.target.style.backgroundColor = filter.color;
+              button_top.style.backgroundColor = filter.color;
+              this.props.changeButtonTitle(button_name)
+            }
+          });
+        }
     }
 
   render () {
+
+    if (this.props.passkey === "Single"){
+      document.querySelectorAll(".color-buttons ul li").forEach(button => {
+          button.style.backgroundColor = "rgba(0, 0, 0, 0)";
+      })
+    }
+
     return (
       <div className="color-buttons">
           <div className="color-buttons__top--selected"></div>

@@ -1,17 +1,33 @@
 import userData from '../data';
 
-export const GETUSERS = 'GETUSERS';
+export const GetUsers = 'GetUsers';
 export function getUsers() {
   return {
-    type: GETUSERS,
+    type: GetUsers,
     data: userData
   }
 }
 
-export const GETBUTTONTITLE = 'GETBUTTONTITLE';
+export const GetButtonTitle = 'GetButtonTitle';
 export function changeButtonTitle(buttonName) {
   return {
-    type: GETBUTTONTITLE,
+    type: GetButtonTitle,
     buttonName
+  }
+}
+
+export const GetSingleUser = 'GetSingleUser';
+export function singleUser(user) {
+  return {
+    type: GetSingleUser,
+    user
+  }
+}
+
+export const ChangeUserGroup = 'ChangeUserGroup';
+export function changeUserGroup(data) {
+  return {
+    type: ChangeUserGroup,
+    data
   }
 }
