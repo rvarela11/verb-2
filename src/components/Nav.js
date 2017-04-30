@@ -46,6 +46,8 @@ class Nav extends Component {
 
   render () {
 
+    // The passkey is used to set all backgrounds to black once a SingleUser is clicked
+
     if (this.props.passkey === "Single"){
       document.querySelectorAll(".color-buttons ul li").forEach(button => {
           button.style.backgroundColor = "rgba(0, 0, 0, 0)";

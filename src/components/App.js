@@ -10,8 +10,12 @@ import Search from './Search';
 class App extends Component {
 
   componentDidMount () {
+    //function to get the array with all the users data
     this.props.getUsers();
   }
+
+  // The Users and the SingleUser components share the same space on the webpage.
+  // To display the proper component information there is a passkey.
 
   users = () => {
 
