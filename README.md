@@ -8,6 +8,4 @@ A dashboard that allows an administrator to search for a specific user and add t
 
 1. React
 2. Redux
-3. Webpack
-4. Babel
-5. JavaScript
+3. Vanilla JavaScript
