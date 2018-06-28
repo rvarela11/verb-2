@@ -13,10 +13,10 @@ class Search extends Component {
   }
 
   results = (wordToMatch) => {
-    return this.props.data.filter(name => {
-        const regex = new RegExp(wordToMatch, 'gi');
-        return name.first_name.match(regex) || name.last_name.match(regex)
-      });
+    const wordToMatchLowerCase = wordToMatch.toLowerCase();
+    return this.props.data.filter(({ first_name, last_name } ) => {
+      return first_name.toLowerCase().includes(wordToMatchLowerCase) || last_name.toLowerCase().includes(wordToMatchLowerCase)
+    });
   }
 
   singleUserInfo = (user) => {
